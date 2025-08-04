@@ -1,0 +1,59 @@
+      *** LENGTH OF LAST WORD ***
+
+    class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        l = s.split()
+        return len(l[-1])
+
+     *** ROMAN TO INTEGER CONVERTER ***
+
+    class Solution:
+    def romanToInt(self, s: str) -> int:
+        d={'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
+        a = 0
+        b = 1
+        ans = 0
+        while(b<len(s)):
+            p1 = s[a]
+            p2 = s[b]
+            if (d[p1]>=d[p2]):
+                ans += d[p1]
+                a +=1
+                b +=1
+            else:
+                ans += d[p2] - d[p1]
+                a +=2
+                b +=2
+        if a < len(s):
+            ans += d[s[a]]
+        return ans
+
+    *** LONGEST COMMON PREFIX ***
+
+    class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        ans =""
+        strs=sorted(strs)
+        p1 = 0
+        p2 = 0
+        a=strs[0]
+        b=strs[-1]
+        while(p1<len(strs[0]) and p2<len(strs[-1])):
+            if a[p1] == b[p2]:
+                ans = ans + a[p1]
+                p1+=1
+                p2+=1
+            else:
+                return ans
+        return ans
+
+        
+
+                
+
+
+
+
+
+        
+        
